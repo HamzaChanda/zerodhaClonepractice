@@ -101,7 +101,7 @@ export class App implements OnInit {
     // Load Pyngl loader script
     const script = document.createElement('script');
     script.src = '/loader.js';
-    script.dataset['api'] = 'http://localhost:3000/api';
+    script.dataset['api'] = 'https://api.preta.io';
     script.dataset['debug'] = 'true';
     document.head.appendChild(script);
   }
