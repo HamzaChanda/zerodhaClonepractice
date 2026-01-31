@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === CSS Custom Properties for Theming === */
+:root {
+  --kite-bg: #ffffff;
+  --kite-bg-darker: #f5f5f5;
+  --kite-surface: #ffffff;
+  --kite-surface-hover: #fafafa;
+  --kite-border: #e0e0e0;
+  --kite-border-light: #eeeeee;
+  --kite-text: #1c1c1c;
+  --kite-text-muted: #666666;
+  --kite-text-dim: #999999;
+  --kite-accent: #ff5722;
+  --kite-green: #4caf50;
+  --kite-red: #f44336;
+  --kite-blue: #2196f3;
+}
+
+.dark {
+  --kite-bg: #1c1c1c;
+  --kite-bg-darker: #121212;
+  --kite-surface: #242424;
+  --kite-surface-hover: #2a2a2a;
+  --kite-border: #2c2c2c;
+  --kite-border-light: #3c3c3c;
+  --kite-text: #ffffff;
+  --kite-text-muted: #9e9e9e;
+  --kite-text-dim: #666666;
+  --kite-accent: #ff5722;
+  --kite-green: #4caf50;
+  --kite-red: #f44336;
+  --kite-blue: #2196f3;
+}
+
+/* === Base Styles === */
+@layer base {
+  * {
+    @apply border-[var(--kite-border)];
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    background-color: var(--kite-bg);
+    color: var(--kite-text);
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  /* Custom scrollbar for dark theme */
+  ::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--kite-bg-darker);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--kite-border-light);
+    @apply rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--kite-text-dim);
+  }
+}
+
+/* === Component Utilities === */
+@layer components {
+  /* Glassmorphism card */
+  .glass-card {
+    @apply backdrop-blur-md border rounded-xl;
+    background: rgba(36, 36, 36, 0.8);
+    border-color: var(--kite-border);
+  }
+
+  .dark .glass-card {
+    background: rgba(36, 36, 36, 0.6);
+  }
+
+  /* Surface card with hover */
+  .surface-card {
+    background-color: var(--kite-surface);
+    border: 1px solid var(--kite-border);
+    @apply rounded-lg transition-all duration-200;
+  }
+
+  .surface-card:hover {
+    background-color: var(--kite-surface-hover);
+    border-color: var(--kite-border-light);
+  }
+
+  /* Stock price flash effects */
+  .price-flash-green {
+    animation: flashGreen 0.5s ease-out;
+  }
+
+  .price-flash-red {
+    animation: flashRed 0.5s ease-out;
+  }
+
+  /* Buy/Sell buttons */
+  .btn-buy {
+    @apply px-4 py-2 rounded-md font-medium transition-all duration-200;
+    @apply bg-kite-blue text-white hover:bg-kite-blue-hover;
+    @apply shadow-glow-blue hover:shadow-lg;
+  }
+
+  .btn-sell {
+    @apply px-4 py-2 rounded-md font-medium transition-all duration-200;
+    @apply bg-kite-red text-white hover:bg-kite-red-light;
+    @apply shadow-glow-red hover:shadow-lg;
+  }
+
+  /* Accent button */
+  .btn-accent {
+    @apply px-4 py-2 rounded-md font-medium transition-all duration-200;
+    @apply bg-kite-accent text-white hover:bg-kite-accent-hover;
+  }
+
+  /* Tab navigation */
+  .tab-item {
+    @apply px-4 py-2 text-sm font-medium transition-all duration-200;
+    @apply border-b-2 border-transparent;
+    color: var(--kite-text-muted);
+  }
+
+  .tab-item:hover {
+    color: var(--kite-text);
+  }
+
+  .tab-item.active {
+    color: var(--kite-accent);
+    @apply border-kite-accent;
+  }
+
+  /* Bento grid */
+  .bento-grid {
+    @apply grid gap-4;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .bento-item {
+    @apply surface-card p-4;
+  }
+
+  .bento-item-lg {
+    @apply col-span-2 row-span-2;
+  }
+
+  /* Input fields */
+  .input-field {
+    @apply w-full px-3 py-2 rounded-md border transition-all duration-200;
+    @apply focus:outline-none focus:ring-2 focus:ring-kite-accent/50;
+    background-color: var(--kite-bg-darker);
+    border-color: var(--kite-border);
+    color: var(--kite-text);
+  }
+
+  .input-field::placeholder {
+    color: var(--kite-text-dim);
+  }
+
+  /* Toggle switch */
+  .toggle-group {
+    @apply inline-flex rounded-md overflow-hidden;
+    background-color: var(--kite-bg-darker);
+  }
+
+  .toggle-item {
+    @apply px-3 py-1.5 text-sm font-medium transition-all duration-200;
+    color: var(--kite-text-muted);
+  }
+
+  .toggle-item.active {
+    @apply bg-kite-accent text-white;
+  }
+
+  /* Profit/Loss text */
+  .text-profit {
+    @apply text-kite-green;
+  }
+
+  .text-loss {
+    @apply text-kite-red;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 text-xs font-medium rounded-full;
+  }
+
+  .badge-green {
+    @apply bg-kite-green/20 text-kite-green;
+  }
+
+  .badge-red {
+    @apply bg-kite-red/20 text-kite-red;
+  }
+
+  .badge-blue {
+    @apply bg-kite-blue/20 text-kite-blue;
+  }
+
+  .badge-accent {
+    @apply bg-kite-accent/20 text-kite-accent;
+  }
+}
+
+/* === Keyframes === */
+@keyframes flashGreen {
+  0% { background-color: rgba(76, 175, 80, 0.3); }
+  100% { background-color: transparent; }
+}
+
+@keyframes flashRed {
+  0% { background-color: rgba(244, 67, 54, 0.3); }
+  100% { background-color: transparent; }
+}
+
+/* === Modal Overlay === */
+.modal-overlay {
+  @apply fixed inset-0 z-50 flex items-center justify-center;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  @apply glass-card p-6 max-w-lg w-full mx-4;
+  @apply animate-slide-up;
+}
+
+/* === Command Palette === */
+.command-palette-overlay {
+  @apply fixed inset-0 z-50 flex items-start justify-center pt-[15vh];
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+.command-palette {
+  @apply glass-card w-full max-w-2xl overflow-hidden;
+  @apply animate-slide-down;
+}

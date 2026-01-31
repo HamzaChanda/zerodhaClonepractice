@@ -1,0 +1,46 @@
+{
+  "pyngl_version": "1.0",
+  "exported_at": "2026-01-31T11:15:50.283Z",
+  "element": {
+    "id": "f651e302-74e4-4506-8d8b-70af077feebd",
+    "type": "clone",
+    "domain": "localhost",
+    "pathname": "/",
+    "placement": "right of \"Apps\"",
+    "data": {
+      "id": "c_1769858124029",
+      "tag": "button",
+      "href": "#",
+      "domain": "localhost",
+      "margin": {
+        "desktop": "4px"
+      },
+      "cssText": "display:flex;flex-direction:row;flex-wrap:nowrap;flex-grow:0;flex-shrink:1;border-radius:0px!important;border:!important;outline:none!important",
+      "padding": {
+        "desktop": "0px"
+      },
+      "pathname": "/",
+      "position": "right",
+      "priority": 50,
+      "className": "tab-item",
+      "createdAt": 1769858124033,
+      "innerHTML": " Apps ",
+      "actionType": "link",
+      "anchorText": "Apps",
+      "creatorEmail": "hchanda2003@gmail.com",
+      "hoverCssText": "color: var(--kite-text)",
+      "singleTarget": true,
+      "parentContext": {
+        "gap": "4px",
+        "display": "flex",
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "normal",
+        "gridTemplateRows": "none",
+        "gridTemplateColumns": "none"
+      },
+      "targetSelector": "body > app-root > div > div > main > app-tab-navigation > nav > button:nth-of-type(6)",
+      "transitionCssText": "0.2s cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  }
+}
