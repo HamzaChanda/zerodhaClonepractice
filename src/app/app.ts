@@ -98,12 +98,6 @@ export class App implements OnInit {
   selectedSymbol = signal('RELIANCE');
 
   ngOnInit(): void {
-    // Load Pyngl loader script
-    const script = document.createElement('script');
-    script.src = '/loader.js';
-    script.dataset['api'] = 'https://api.preta.io';
-    script.dataset['debug'] = 'true';
-    document.head.appendChild(script);
   }
 
   onTabChange(tabId: TabId): void {
