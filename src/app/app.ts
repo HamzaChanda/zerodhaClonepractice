@@ -1,6 +1,5 @@
 import { Component, signal, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
 import { ShellComponent } from './layout/shell/shell.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
@@ -20,7 +19,6 @@ import { ThemeService } from './core/services/theme.service';
   standalone: true,
   imports: [
     CommonModule,
-    RouterOutlet,
     HeaderComponent,
     SidebarComponent,
     TabNavigationComponent,
